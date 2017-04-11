@@ -7,8 +7,179 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/beli3ver&#34;&gt;Malte Kiefer&lt;/a&gt; 2016</copyright>
-    <lastBuildDate>Tue, 11 Apr 2017 00:29:59 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 11 Apr 2017 12:15:54 -0400</lastBuildDate>
     <atom:link href="https://jackypaper.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo It</title>
+      <link>https://jackypaper.github.io/post/Hugo%20It/</link>
+      <pubDate>Tue, 11 Apr 2017 12:15:54 -0400</pubDate>
+      
+      <guid>https://jackypaper.github.io/post/Hugo%20It/</guid>
+      <description>
+
+&lt;p&gt;Firstly, need to install &lt;code&gt;hugo&lt;/code&gt; correctly.&lt;/p&gt;
+
+&lt;h3 id=&#34;initialization&#34;&gt;Initialization&lt;/h3&gt;
+
+&lt;p&gt;Then, start to build your website.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ hugo new site jackypaper
+$ cd jackypaper
+$ tree -a
+
+.
+|-- archetypes
+|-- config.toml
+|-- content
+|-- data
+|-- layouts
+|-- static
+`-- themes
+
+6 directories, 1 file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;add-content&#34;&gt;Add Content&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ hugo new &amp;lt;SECTIONNAME&amp;gt;/&amp;lt;FILENAME&amp;gt;.&amp;lt;FORMAT&amp;gt;
+$ hugo new post/hugo.md
+
+content
+└── post
+    └── hugo.md
+
+1 directory, 1 file
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;+++
+title = &amp;quot;hugo&amp;quot;
+draft = true
+date = &amp;quot;2017-04-11T00:02:49-04:00&amp;quot;
++++
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;add-theme&#34;&gt;Add Theme&lt;/h3&gt;
+
+&lt;p&gt;I choose &lt;code&gt;hemingway2&lt;/code&gt; as my page theme.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd theme
+$ git clone https://github.com/beli3ver/hemingway2.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;update-config-toml&#34;&gt;Update config.toml&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-toml&#34;&gt;baseurl = &amp;quot;https://example.com&amp;quot;
+languageCode = &amp;quot;en&amp;quot;
+title = &amp;quot;Hemingway2&amp;quot;
+theme = &amp;quot;hemingway2&amp;quot;
+copyright = &amp;quot;&amp;amp;copy; &amp;lt;a href=\&amp;quot;https://github.com/beli3ver\&amp;quot;&amp;gt;Malte Kiefer&amp;lt;/a&amp;gt; 2016&amp;quot;
+disqusShortname = &amp;quot;shortname&amp;quot;
+googleAnalytics = &amp;quot;&amp;quot;
+description = &amp;quot;Your personal description&amp;quot;
+keywords = [&amp;quot;keyword1&amp;quot;, &amp;quot;keyword2&amp;quot;]
+
+[taxonomies]
+tag = &amp;quot;tags&amp;quot;
+category = &amp;quot;categories&amp;quot;
+
+[params]
+
+[params.highlight]
+style = &amp;quot;github&amp;quot;
+languages = [&amp;quot;go&amp;quot;, &amp;quot;dockerfile&amp;quot;]
+
+[[params.social]]
+url = &amp;quot;https://github.com/beli3ver&amp;quot;
+fa_icon = &amp;quot;fa-github&amp;quot;
+
+[[params.social]]
+url = &amp;quot;https://gitlab.com/beli3ver&amp;quot;
+fa_icon = &amp;quot;fa-gitlab&amp;quot;
+
+[[params.social]]
+url = &amp;quot;https://twitter.com/malkie16&amp;quot;
+fa_icon = &amp;quot;fa-twitter&amp;quot;
+
+[[params.social]]
+url = &amp;quot;https://telegram.me/beli3ver&amp;quot;
+fa_icon = &amp;quot;fa-telegram&amp;quot;
+
+[[params.social]]
+url = &amp;quot;/index.xml&amp;quot;
+fa_icon = &amp;quot;fa-rss&amp;quot;
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;start-the-server&#34;&gt;Start the Server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd ..
+$ hugo server --theme=hemingway2 --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;make-posts-public&#34;&gt;Make posts public&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ hugo undraft content/post/good-to-great.md
+$ hugo server --theme=hemingway2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;generate-website&#34;&gt;Generate website&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;% In config.coml
+baseURL = &amp;quot;https://&amp;lt;your GitHub username&amp;gt;.github.io/jackypaper/&amp;quot;
+[or]
+baseURL = &amp;quot;https://jackypaper.github.io/&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ hugo --theme=hemingway2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;deploy-bookshelf-on-github-pages&#34;&gt;Deploy bookshelf on GitHub pages&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# root folder
+$ git init
+$ echo &amp;quot;/public/&amp;quot; &amp;gt;&amp;gt; .gitignore
+$ echo &amp;quot;/themes/&amp;quot; &amp;gt;&amp;gt; .gitignore
+$ git add --all
+$ git commit -m &amp;quot;Initial commit&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd public
+
+# If necessary, Please check:
+$ git config user.name
+$ git config user.name jackypaper
+
+$ git init
+$ git remote add origin https://github.com/jackypaper/jackypaper.github.io.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;If necessary&lt;/em&gt;, for subdomain&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ git checkout -b gh-pages
+Switched to a new branch &#39;gh-pages&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add all the files (within &lt;code&gt;jackypaper/public&lt;/code&gt;) to the index, commit them, and push the changes to GitHub.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ git add --all
+$ git commit -m &amp;quot;new commit&amp;quot;
+$ git push -f origin master
+[or, for subdomin]
+$ git push -f origin &#39;gh-pages&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;regenerate-page&#34;&gt;Regenerate page&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ (cd ..; hugo --theme=hemingway2)
+
+$ cd public
+$ git add --all
+$ git commit -m &amp;quot;&amp;lt;some change message&amp;gt;&amp;quot;
+$ git push -f origin master &amp;lt;or &#39;gh-pages&#39;&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>hugo</title>
