@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jackypaper.github.io/post/%E4%B8%89%E4%BB%B6%E5%B0%8F%E4%BA%8B/</loc>
+    <lastmod>2017-06-02T01:12:17-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jackypaper.github.io/post/%E6%9C%80%E8%BF%91%E7%9A%84%E6%AD%8C%E5%8D%95/</loc>
     <lastmod>2017-05-06T15:56:33-04:00</lastmod>
   </url>
@@ -18,7 +23,7 @@
   
   <url>
     <loc>https://jackypaper.github.io/</loc>
-    <lastmod>2017-05-06T15:56:33-04:00</lastmod>
+    <lastmod>2017-06-02T01:12:17-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -30,7 +35,7 @@
   
   <url>
     <loc>https://jackypaper.github.io/post/</loc>
-    <lastmod>2017-05-06T15:56:33-04:00</lastmod>
+    <lastmod>2017-06-02T01:12:17-04:00</lastmod>
     <priority>0</priority>
   </url>
   
