@@ -1,0 +1,10 @@
+baseURL = "http://jackpaper.github.io/"
+languageCode = "en-us"
+title = "JackPaper"
+theme = "code-editor"
+
+[params]
+    author = "Jack Paper"
+    locale = "en-US"
+    # rootlink = "/"
+    # rootlink specifies where Root in menu.html links to. If it's not set then baseurl will be used.
