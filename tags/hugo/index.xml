@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on JackPaper</title>
-    <link>https://jackypaper.github.io/posts/</link>
-    <description>Recent content in Posts on JackPaper</description>
+    <title>Hugo on JackPaper</title>
+    <link>https://jackypaper.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on JackPaper</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 11 Mar 2018 18:08:36 -0400</lastBuildDate>
     
-	<atom:link href="https://jackypaper.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://jackypaper.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -31,16 +31,6 @@ reference: - taxonomies - Hugo support: how to add tags</description>
       <guid>https://jackypaper.github.io/posts/hugo-start/</guid>
       <description>Basically follow the hugo official Quick Start.
 # for MacOS brew install hugo # check hugo version # Hugo Static Site Generator v0.37.1 darwin/amd64 BuildDate: # step 1 hugo new site &amp;lt;Username&amp;gt;.github.io cd &amp;lt;Username&amp;gt;.github.io git init # git add . # git commit -m &#39;create github page repo&#39; # git push origin master # step 2 git branch dev git checkout dev # theme: code-editor git submodule add https://github.com/aubm/hugo-code-editor-theme.git themes/code-editor # or git clone .</description>
-    </item>
-    
-    <item>
-      <title>My First Post</title>
-      <link>https://jackypaper.github.io/posts/my-first-post/</link>
-      <pubDate>Sat, 10 Mar 2018 17:17:30 -0500</pubDate>
-      
-      <guid>https://jackypaper.github.io/posts/my-first-post/</guid>
-      <description> first First Amituofo
-Second Third </description>
     </item>
     
   </channel>

@@ -27,13 +27,35 @@
         <h3 data-open="last-posts">JackPaper - Most recent posts</h3>
         <ul>
             
+            <li><a href="https://jackypaper.github.io/posts/hugo-add-tags--categories/">HUGO: Add Tags &amp; Categories</a></li>
+            
+            <li><a href="https://jackypaper.github.io/posts/hugo-start/">HUGO: Start</a></li>
+            
             <li><a href="https://jackypaper.github.io/posts/my-first-post/">My First Post</a></li>
             
         </ul>
     </div>
 
     
+    <div id="tags" class="open">
+        <h3 data-open="tags">Tags</h3>
+        <ul class="tags">
+            
+            <li><a href="/tags/hugo">hugo</a></li>
+            
+        </ul>
+    </div>
+    
 
+    
+    <div id="categories" class="open">
+        <h3 data-open="categories">Categories</h3>
+        <ul class="categories">
+            
+            <li><a href="/categories/tech">tech</a></li>
+            
+        </ul>
+    </div>
     
 </nav>
 
@@ -47,6 +69,20 @@
         <h3><a href="https://jackypaper.github.io/posts/my-first-post/">My First Post</a> - 2018-03-10 17:17:30</h3>
          first First Amituofo
 Second Third 
+    </article>
+    
+    <article>
+        <h3><a href="https://jackypaper.github.io/posts/hugo-start/">HUGO: Start</a> - 2018-03-11 17:28:23</h3>
+        Basically follow the hugo official Quick Start.
+# for MacOS brew install hugo # check hugo version # Hugo Static Site Generator v0.37.1 darwin/amd64 BuildDate: # step 1 hugo new site &lt;Username&gt;.github.io cd &lt;Username&gt;.github.io git init # git add . # git commit -m 'create github page repo' # git push origin master # step 2 git branch dev git checkout dev # theme: code-editor git submodule add https://github.com/aubm/hugo-code-editor-theme.git themes/code-editor # or git clone .
+    </article>
+    
+    <article>
+        <h3><a href="https://jackypaper.github.io/posts/hugo-add-tags--categories/">HUGO: Add Tags &amp; Categories</a> - 2018-03-11 18:08:36</h3>
+        In config.toml, add
+[taxonomies] tag = &quot;tags&quot; category = &quot;categories&quot;  In your posts, add the following lines in the config header.
+tags: [hugo] categories: [tech]  Try more complicated nested tag structures if you have more energy&hellip;
+reference: - taxonomies - Hugo support: how to add tags
     </article>
     
 </div>

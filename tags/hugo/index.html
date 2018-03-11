@@ -8,7 +8,7 @@
 
 <meta name="description" content="">
 
-<title>404 Page not found</title>
+<title>Hugo</title>
 <meta name="generator" content="Hugo 0.37.1" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/pojoaque.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
@@ -62,8 +62,26 @@
 </div>
 <div class="col-md-9 content">
 
-<p>Sorry, page not found ... :(</p>
-<p><a href="/">Go to root</a></p>
+
+<div class="articles-list">
+    
+    <article>
+        <h3><a href="https://jackypaper.github.io/posts/hugo-start/">HUGO: Start</a> - 2018-03-11 17:28:23</h3>
+        Basically follow the hugo official Quick Start.
+# for MacOS brew install hugo # check hugo version # Hugo Static Site Generator v0.37.1 darwin/amd64 BuildDate: # step 1 hugo new site &lt;Username&gt;.github.io cd &lt;Username&gt;.github.io git init # git add . # git commit -m 'create github page repo' # git push origin master # step 2 git branch dev git checkout dev # theme: code-editor git submodule add https://github.com/aubm/hugo-code-editor-theme.git themes/code-editor # or git clone .
+    </article>
+    
+    <article>
+        <h3><a href="https://jackypaper.github.io/posts/hugo-add-tags--categories/">HUGO: Add Tags &amp; Categories</a> - 2018-03-11 18:08:36</h3>
+        In config.toml, add
+[taxonomies] tag = &quot;tags&quot; category = &quot;categories&quot;  In your posts, add the following lines in the config header.
+tags: [hugo] categories: [tech]  Try more complicated nested tag structures if you have more energy&hellip;
+reference: - taxonomies - Hugo support: how to add tags
+    </article>
+    
+</div>
+
+
 </div>
 </div>
 <script src="https://jackypaper.github.io//js/theme.min.js" type="text/javascript"></script>

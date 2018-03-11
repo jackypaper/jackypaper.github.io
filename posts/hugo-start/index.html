@@ -8,7 +8,7 @@
 
 <meta name="description" content="">
 
-<title>My First Post</title>
+<title>HUGO: Start</title>
 <meta name="generator" content="Hugo 0.37.1" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/pojoaque.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
@@ -62,8 +62,8 @@
 </div>
 <div class="col-md-9 content">
 
-<h1>My First Post</h1>
-<h4>Published 03-10-2018 17:17:30</h4>
+<h1>HUGO: Start</h1>
+<h4>Published 03-11-2018 17:28:23</h4>
 
 <a href="https://twitter.com/share" class="twitter-share-button" data-via="kendo5731"></a>
 <script>!function (d, s, id) {
@@ -76,7 +76,7 @@
     }
 }(document, 'script', 'twitter-wjs');</script>
 
-<div class="fb-share-button" data-href="https://jackypaper.github.io/posts/my-first-post/" data-layout="button"></div>
+<div class="fb-share-button" data-href="https://jackypaper.github.io/posts/hugo-start/" data-layout="button"></div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -87,21 +87,68 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <article>
-    
+    <p>Basically follow the <strong>hugo</strong> official <a href="https://gohugo.io/getting-started/quick-start/">Quick Start</a>.</p>
 
-<h1 id="first">first</h1>
+<pre><code class="language-bash"># for MacOS
+brew install hugo
+# check hugo version
+# Hugo Static Site Generator v0.37.1 darwin/amd64 BuildDate:
 
-<p><img src="https://cdn-images-1.medium.com/max/1600/0*NFscoCQwTuLB8mQu.png" alt="" /></p>
+# step 1
+hugo new site &lt;Username&gt;.github.io
+cd &lt;Username&gt;.github.io
+git init
+# git add .
+# git commit -m 'create github page repo'
+# git push origin master
 
-<h1 id="first-1">First</h1>
+# step 2
+git branch dev
+git checkout dev
+# theme: code-editor
+git submodule add https://github.com/aubm/hugo-code-editor-theme.git themes/code-editor
+# or git clone ...
+# Be careful! the theme name should be consistent with the one in config.toml.
+echo 'theme = &quot;code-editor&quot;' &gt;&gt; config.toml
+# or as the theme owner suggests
+</code></pre>
 
-<p><em>Amituofo</em></p>
+<pre><code class="language-toml">baseurl = &quot;http://your-site.com&quot;
+languageCode = &quot;en-US&quot;
+title = &quot;Your site&quot;
+theme = &quot;code-editor&quot;
 
-<h2 id="second">Second</h2>
+[params]
+    author = &quot;name&quot;
+    locale = &quot;en-US&quot;
+    # rootlink = &quot;/&quot;
+    # rootlink specifies where Root in menu.html links to. If it's not set then baseurl will be used.
+</code></pre>
 
-<h3 id="third">Third</h3>
+<pre><code class="language-bash"># step 3
+hugo new posts/my-first-post.md
+# preview including drafts
+hugo server -D
+# if everything's ready, edit `draft: true`
+# control + c to exit local preview
+</code></pre>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/2/26/FraMauroMap.jpg" alt="" /></p>
+<pre><code class="language-bash"># step 4
+# remove `public` folder if it exists
+hugo --theme=code-editor --baseURL=https://&lt;username&gt;.github.io/
+# update dev branch if you want
+
+# step 5
+# move all files &amp; folders of `public` folder to master branch
+git checkout master
+# overwrite master branch!
+git add .
+git commit -m 'my first post'
+git push origin master
+</code></pre>
+
+<p>reference:
+- <a href="https://themes.gohugo.io/hugo-code-editor-theme/"><strong>code-editor</strong> theme page</a></p>
 
 </article>
 
