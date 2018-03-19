@@ -6,10 +6,20 @@
     <description>Recent content in Tech on JackPaper</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Mar 2018 18:08:36 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 18 Mar 2018 22:52:10 -0400</lastBuildDate>
     
 	<atom:link href="https://jackypaper.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RPi_motion_surveilliance</title>
+      <link>https://jackypaper.github.io/posts/rpi_motion_surveilliance/</link>
+      <pubDate>Sun, 18 Mar 2018 22:52:10 -0400</pubDate>
+      
+      <guid>https://jackypaper.github.io/posts/rpi_motion_surveilliance/</guid>
+      <description>After watching two online courses on Coursera, I&amp;rsquo;m going to put what I&amp;rsquo;ve learned about Raspberry Pi into practice. Basically, those two courses which are taught by a professor from UC Irving cover a wide range of topics related with RPi and IoT stuff including web connection, usage of GPIO, camera module, application examples like blink.py and send_receive_twitter.py and so on.
+So the prototype is a motion surveillance app with multiple alert action functions, which will be my capstone project for current stage of RPi learning.</description>
+    </item>
     
     <item>
       <title>HUGO: Add Tags &amp; Categories</title>
