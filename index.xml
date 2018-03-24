@@ -6,10 +6,20 @@
     <description>Recent content on JackPaper</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 18 Mar 2018 22:52:10 -0400</lastBuildDate>
+    <lastBuildDate>Sat, 24 Mar 2018 18:10:12 -0400</lastBuildDate>
     
 	<atom:link href="https://jackypaper.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>PostgreSQL_PostGIS_Notes_1</title>
+      <link>https://jackypaper.github.io/post/postgresql_postgis_notes_1/</link>
+      <pubDate>Sat, 24 Mar 2018 18:10:12 -0400</pubDate>
+      
+      <guid>https://jackypaper.github.io/post/postgresql_postgis_notes_1/</guid>
+      <description>PostgreSQL / PostGIS Notes (1) All contents are from Carto Academy Tutorial: Learning SQL through the CARTO Editor
+1. the_geom In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. Just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or projections.</description>
+    </item>
     
     <item>
       <title>RPi_motion_surveilliance</title>

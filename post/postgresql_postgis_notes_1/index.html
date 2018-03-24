@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+<head>
+    <base href="/">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="author" content="Jack Paper">
+
+<meta name="description" content="">
+
+<title>PostgreSQL_PostGIS_Notes_1</title>
+<meta name="generator" content="Hugo 0.37.1" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/pojoaque.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" type="text/css">
+<link  href="https://jackypaper.github.io//css/theme.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<div class="page-container container-fluid">
+<div class="col-md-3 menu">
+    <nav class="col-md-3">
+    <h3 class="home-link"><a href="https://jackypaper.github.io/">Root</a></h3>
+    <div id="last-posts" class="open">
+        <h3 data-open="last-posts">JackPaper - Most recent posts</h3>
+        <ul>
+            
+            <li><a href="https://jackypaper.github.io/post/postgresql_postgis_notes_1/">PostgreSQL_PostGIS_Notes_1</a></li>
+            
+            <li><a href="https://jackypaper.github.io/posts/rpi_motion_surveilliance/">RPi_motion_surveilliance</a></li>
+            
+            <li><a href="https://jackypaper.github.io/posts/hugo-add-tags--categories/">HUGO: Add Tags &amp; Categories</a></li>
+            
+            <li><a href="https://jackypaper.github.io/posts/hugo-start/">HUGO: Start</a></li>
+            
+            <li><a href="https://jackypaper.github.io/posts/my-first-post/">My First Post</a></li>
+            
+        </ul>
+    </div>
+
+    
+    <div id="tags" class="open">
+        <h3 data-open="tags">Tags</h3>
+        <ul class="tags">
+            
+            <li><a href="/tags/hugo">hugo</a></li>
+            
+            <li><a href="/tags/postgresql/postsql">postgresql/postsql</a></li>
+            
+            <li><a href="/tags/raspberry-pi">raspberry-pi</a></li>
+            
+        </ul>
+    </div>
+    
+
+    
+    <div id="categories" class="open">
+        <h3 data-open="categories">Categories</h3>
+        <ul class="categories">
+            
+            <li><a href="/categories/tech">tech</a></li>
+            
+        </ul>
+    </div>
+    
+</nav>
+
+</div>
+<div class="col-md-9 content">
+
+<h1>PostgreSQL_PostGIS_Notes_1</h1>
+<h4>Published 03-24-2018 18:10:12</h4>
+
+<a href="https://twitter.com/share" class="twitter-share-button" data-via="kendo5731"></a>
+<script>!function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'twitter-wjs');</script>
+
+<div class="fb-share-button" data-href="https://jackypaper.github.io/post/postgresql_postgis_notes_1/" data-layout="button"></div>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en-US/sdk.js#xfbml=1&version=v2.5";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<article>
+    
+
+<h2 id="postgresql-postgis-notes-1">PostgreSQL / PostGIS Notes (1)</h2>
+
+<p>All contents are from Carto Academy Tutorial: <a href="https://carto.com/academy/courses/sql-postgis/intro-to-sql-and-postgis/"><em>Learning SQL through the CARTO Editor</em></a></p>
+
+<h3 id="1-the-geom">1. the_geom</h3>
+
+<p>In our case, we have a point type geometry with coordinates at the values listed. Note that longitude is first and latitude is second, similar to (x,y) from plotting in a Cartesian coordinate plane. Just like there are different coordinate systems besides Cartesian (e.g., polar, spherical, etc.), maps have different coordinate systems, or <strong>projections</strong>. <code>The_geom</code> is stored in a system called WGS84.</p>
+
+<hr />
+
+<h3 id="2-the-geom-webmercator">2. the_geom_webmercator</h3>
+
+<pre><code class="language-sql">SELECT cartodb_id, ST_AsText(the_geom_webmercator) AS the_geom_webmercator
+FROM earthquake_sql
+</code></pre>
+
+<p><code>the_geom_webmercator</code> contains all the same points that were in <code>the_geom</code>, but projected to Web Mercator, a web-optimized version of the historical Mercator projection.</p>
+
+<p>As you can see, the values range from around -20 million meters to +20 million meters in both the N/S and E/W directions because the circumference of the earth is around 40 million meters. This projection takes the furthest North and South to be ± 85.0511°, which allows the earth to be projected as a large square, very convenient for using square tiles with on the web. It excludes the poles, so other projections will have to be used if your data requires them.</p>
+
+<hr />
+
+<h3 id="3-projection">3. Projection</h3>
+
+<ul>
+<li><strong>4326</strong> for <a href="http://en.wikipedia.org/wiki/World_Geodetic_System">WGS84</a>, which defines <code>the_geom</code>;</li>
+<li><strong>3857</strong> for <a href="http://en.wikipedia.org/wiki/Web_Mercator">Web Mercator</a>, which defines <code>the_geom_webmercator</code>.</li>
+</ul>
+
+<p>we will use <code>CDB_LatLng(lat,long)</code> to get a coordinate in the 4326 projection (WGS84).</p>
+
+<pre><code class="language-sql">SELECT cdb_latlng(cast(lat as float), cast(lng as float)) as geo FROM dfan.mcd_mn
+</code></pre>
+
+<hr />
+
+<h3 id="distance-unit">Distance &amp; Unit</h3>
+
+<ul>
+<li><code>geometry</code> type arguments: allows you to measure the distance in degrees (lat/long)</li>
+<li><code>geography</code> type arguments: allows you to measure the distance in meters</li>
+<li><code>use_spheroid</code> argument: use WGS84’s <a href="http://en.wikipedia.org/wiki/World_Geodetic_System#Main_parameters">oblate spheroid earth</a> (pass <code>true</code>) or assume the earth is perfectly spherical (pass <code>false</code>)</li>
+</ul>
+
+<pre><code class="language-sql">SELECT
+  *,
+  ST_Distance(
+    the_geom::geography,
+    CDB_LatLng(37.7833,-122.4167)::geography
+  ) / 1000 AS dist
+FROM
+  earthquake_sql
+</code></pre>
+
+<p>In spatial functions, if an option is available that includes the <code>boolean use_spheroid</code> option, it will achieve the same result as casting your results using the <code>::geography</code> method</p>
+
+<pre><code class="language-sql">SELECT ST_Distance(the_geom, CDB_LatLng(37.7833,-122.4167), true) FROM earthquake_sql
+</code></pre>
+
+<p>Example</p>
+
+<pre><code class="language-plsql">SELECT
+  AVG(ST_Distance(the_geom::geography,CDB_LatLng(43,-122)::geography) - ST_Distance(the_geom,CDB_LatLng(43,-122),true)) as average,
+  STDDEV(ST_Distance(the_geom::geography,CDB_LatLng(43,-122)::geography) - ST_Distance(the_geom,CDB_LatLng(43,-122),true)) as std_deviation
+FROM earthquake_sql
+</code></pre>
+
+<hr />
+
+<h3 id="4-postgis-functions">4. PostGIS Functions</h3>
+
+<ul>
+<li>ST_SaveAsText:  <strong>wkt</strong></li>
+<li>ST_Distance</li>
+</ul>
+
+<p><img src="https://i0.wp.com/geosymp.com/wp-content/uploads/2017/07/Postgis_1-300x235.png?fit=300%2C235&amp;ssl=1" alt="PostgreSQL/PostGIS" /></p>
+
+</article>
+
+
+
+</div>
+</div>
+<script src="https://jackypaper.github.io//js/theme.min.js" type="text/javascript"></script>
+
+
+</body>
+</html>
+
